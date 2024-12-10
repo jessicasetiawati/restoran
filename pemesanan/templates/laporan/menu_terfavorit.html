@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Terfavorit</title>
+    <style>
+      /* CSS Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .container {
+        width: 80%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-info {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #333;
+        padding: 10px 15px;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .back-link:hover {
+        background-color: #575757;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Menu Terfavorit</h1>
+      {% if menu_terfavorit %}
+      <p class="menu-info">Menu: {{ menu_terfavorit.idMenu__namaMenu }}</p>
+      <p class="menu-info">
+        Total Pesanan: {{ menu_terfavorit.total_pesanan }}
+      </p>
+      {% else %}
+      <p>Belum ada data pesanan.</p>
+      {% endif %}
+      <a href="/laporan/" class="back-link">Kembali ke Dashboard</a>
+    </div>
+  </body>
+</html>

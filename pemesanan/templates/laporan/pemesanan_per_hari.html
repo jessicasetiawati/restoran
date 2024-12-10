@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemesanan Per Hari</title>
+    <style>
+      /* CSS Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .container {
+        width: 80%;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #333;
+        color: #fff;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #333;
+        padding: 10px 15px;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .back-link:hover {
+        background-color: #575757;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pemesanan Per Hari</h1>
+      {% if pemesanan_per_hari %}
+      <table>
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Jumlah Pemesanan</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in pemesanan_per_hari %}
+          <tr>
+            <td>{{ data.tanggalPemesanan }}</td>
+            <td>{{ data.total_pemesanan }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Belum ada data pemesanan.</p>
+      {% endif %}
+      <a href="/laporan/" class="back-link">Kembali ke Dashboard</a>
+    </div>
+  </body>
+</html>
